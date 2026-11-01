@@ -5,8 +5,10 @@ Working repository for the Kaggle competition
 Goal: make three fault-tolerant quantum subroutines cheaper (fewer qubits and Toffoli gates)
 while a classical verifier still accepts them. Final submission deadline: 2027-01-20, 23:59 UTC.
 
-This repository is **private** while the competition runs. Check the competition Rules tab
-before sharing code with anyone outside the team.
+This repository is **public**. It contains our own scripts, notes and measurements only; the
+competition data is not included. Check the competition Rules tab for what may be shared and
+for the licence terms that apply to prize-winning submissions. No licence file has been chosen
+yet, so by default all rights are reserved until one is added.
 
 ## What is here
 
