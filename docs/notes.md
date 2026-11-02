@@ -17,12 +17,22 @@ One line per experiment: date, task, what changed, measured score, verdict. Reco
   portfolio of public Apache-2.0 circuits; another reports 1.1175 with small gains.
   Check the Rules tab before reusing other people's code.
 
-## Baseline scores (fill in)
+## 2026-11-02: dqi baseline
+
+- `dqi.kmb` (886 MB) loads in 1.4 s and 858 MB peak memory (tested under a 4 GB cap): 1,893 qubits,
+  86,051,014 operations, 5,725,461 Toffoli-like gates statically, 4,165 registers.
+- Official verifier on the baseline: **PASS**, 102,400 shots, 0 value errors, 0 phase errors, error-rate
+  upper bound 8.66e-4 (limit 1/16), repetition factor R = 1.1913, score 24,439,463,583,672.93.
+  Wall time 4 min 54 s on 4 threads (15 min 44 s CPU). circuit sha256 959471d0...cc04995.
+- Reading of the formula: score = R x Q^2 x T. R can only fall from 1.19 to 1.0, so qubits (squared) and
+  Toffolis are the real levers; halving the qubit count alone would divide the score by about 4.
+
+## Baseline scores
 
 | Task | Baseline raw score | Source |
 |---|---|---|
 | invsqrt | 2,076,774.23 (Q=260, C=7,987.59) | local verifier, 2026-11-01 |
-| dqi | TODO | local verifier |
+| dqi | 24,439,463,583,672.93 (R=1.1913, Q=1,893, T=5,725,108.4 Toffolis) | local verifier, 2026-11-02 |
 | dfthcsos | TODO | local verifier |
 
 ## Experiments
