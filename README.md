@@ -34,7 +34,13 @@ GitHub's 100 MB file limit) and belongs to the competition. Download it from the
 
 1. Once, as root: `wsl -d Ubuntu -u root -- apt-get install -y python3.12-venv python3-pip`
 2. In WSL: `bash scripts/setup_wsl.sh` (creates `~/gq-compilation/.venv`, installs Qualtran and kickmix).
-3. Check a circuit: `bash scripts/verify_invsqrt.sh path/to/invsqrt.kmb`
+3. Does an `invsqrt` circuit work? Quick test on 64 inputs (seconds), readable output:
+   `python tasks/invsqrt/check_works.py path/to/invsqrt.kmb`
+   Run `python tasks/invsqrt/check_works.py --selftest` to see that the test passes a good circuit
+   and catches a deliberately broken one.
+4. Full official check (all 3.1 million inputs, 18+ minutes of CPU, keep the laptop awake):
+   `bash scripts/verify_invsqrt.sh path/to/invsqrt.kmb`
+5. Fast score estimate for bit-width changes (3 seconds): `python tasks/invsqrt/sweep_precision.py --baseline-only`
 
 WSL clears `/tmp` on restart, so keep everything under `~/gq-compilation`.
 
