@@ -40,6 +40,17 @@ GitHub's 100 MB file limit) and belongs to the competition. Download it from the
    and catches a deliberately broken one.
 4. Full official check (all 3.1 million inputs, 18+ minutes of CPU, keep the laptop awake):
    `bash scripts/verify_invsqrt.sh path/to/invsqrt.kmb`
+   To run it in the background (survives closing the window), type these three short lines one at a
+   time. Do not paste one long command that wraps onto two lines: a line break inside it breaks the command.
+
+   ```bash
+   S=/mnt/c/Users/manas/quantum-circuit-compilation/scripts
+   cd ~/gq-compilation
+   setsid nohup bash $S/verify_invsqrt.sh work/invsqrt_sweep_best.kmb > logs/my_invsqrt.log 2>&1 &
+   ```
+
+   Then check `pgrep -af verify_submission` (running?) and, after about 20 minutes, `cat logs/my_invsqrt.log`.
+   Adding `--max-x 65536` to the circuit path gives a 20-second smoke test; its score is NOT the real score.
 5. Fast score estimate for bit-width changes (3 seconds): `python tasks/invsqrt/sweep_precision.py --baseline-only`
 
 WSL clears `/tmp` on restart, so keep everything under `~/gq-compilation`.
